@@ -1,0 +1,53 @@
+# 청첩장 한 건을 띄웁니다. service가 하나입니다.
+#   docker compose up -d           띄웁니다. http://localhost:8080
+#   docker compose logs -f         log를 봅니다
+#   docker compose restart         invitation.conf 를 고친 뒤 반영합니다
+#   docker compose down            멈춥니다. 축하 한마디는 volume에 남습니다
+#
+# 주의: docker compose down -v 는 volume까지 지웁니다. 받은 축하 한마디가 사라집니다.
+
+#
+# port를 바꾸려면
+#   INVITATION_PORT=3000 docker compose up -d
+#
+# container 이름과 image 이름을 고정하지 않습니다. compose가 directory 이름에서 지어 줍니다.
+# 고정하면 한 host에서 두 청첩장을 띄울 수 없고 COMPOSE_PROJECT_NAME 격리도 통하지 않습니다.
+# 실제 이름은 docker compose ps 로 봅니다. 아래 명령은 service 이름 invitation 을 쓰므로
+# container 이름이 무엇이든 그대로 동작합니다.
+
+services:
+  invitation:
+    build: .
+    restart: unless-stopped
+
+    ports:
+      # 앞이 host의 port, 뒤가 container의 port입니다.
+      - "${INVITATION_PORT:-8080}:8080"
+
+    volumes:
+      # 이 청첩장의 내용입니다. 고친 뒤 docker compose restart 하면 반영됩니다.
+      - ./invitation.conf:/app/invitation.conf:ro
+      # 청첩장 자산입니다. css 나 html 을 고치면 새로고침만으로 반영됩니다.
+      - ./src:/app/src:ro
+      # 받은 축하 한마디입니다. named volume이라 host의 파일 권한 문제가 없습니다.
+      - guestbook-data:/app/data
+
+    # 앞단에 reverse proxy를 두면 아래 header를 전달해 주시기 바랍니다.
+    # server가 방문자 IP를 복원해 연타를 막는 데 씁니다.
+    #   X-Real-IP, X-Forwarded-For, X-Forwarded-Proto, X-Forwarded-Host
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "-", "http://127.0.0.1:8080/healthz"]
+      interval: 30s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  # 축하 한마디가 여기 남습니다. container를 다시 만들어도 유지됩니다.
+  guestbook-data:
