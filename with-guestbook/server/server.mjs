@@ -170,6 +170,7 @@ const CFG = (function build() {
   const dateKo = `${w.y}년 ${w.m}월 ${w.d}일 ${DAY_KO[w.dow]}요일`;
   const timeKo = `${w.ampmKo} ${w.h12}시${w.mi ? ` ${w.mi}분` : ''}`;
   const firstOf = (en) => en.split(' ')[0] ?? '';
+  const lastOf = (en) => en.trim().split(/\s+/).filter(Boolean).at(-1) ?? '';
   const dayEn = DAY_EN[w.dow] ?? '';
 
   /* 청첩장 세 version의 js/config.js 가 읽는 모양. key 이름을 바꾸면 세 version이 함께 깨진다. */
@@ -186,6 +187,7 @@ const CFG = (function build() {
     GROOM_PARENTS_0: groom.parents[0] ?? '', GROOM_PARENTS_1: groom.parents[1] ?? '',
     GROOM_RANK_KO: groom.rankKo, GROOM_RANK_EXPR: groom.rank,
     GROOM_EN_FIRST: firstOf(groom.en),
+    GROOM_EN_LAST: lastOf(groom.en),
     GROOM_HANDLE: firstOf(groom.en).toLowerCase().replace(/-/g, ''),
     GROOM_BRANCH: groom.en.trim().toLowerCase().split(/\s+/).filter(Boolean).join('-'),
 
@@ -194,6 +196,7 @@ const CFG = (function build() {
     BRIDE_PARENTS_0: bride.parents[0] ?? '', BRIDE_PARENTS_1: bride.parents[1] ?? '',
     BRIDE_RANK_KO: bride.rankKo, BRIDE_RANK_EXPR: bride.rank,
     BRIDE_EN_FIRST: firstOf(bride.en),
+    BRIDE_EN_LAST: lastOf(bride.en),
     BRIDE_HANDLE: firstOf(bride.en).toLowerCase().replace(/-/g, ''),
     BRIDE_BRANCH: bride.en.trim().toLowerCase().split(/\s+/).filter(Boolean).join('-'),
 

@@ -220,6 +220,7 @@ nth() { printf '%s' "${1:-}" | awk -F',' -v n="$2" '{gsub(/^[ \t]+|[ \t]+$/, "",
 
 # 영문 이름에서 파생하는 장식 값입니다.
 first_name() { printf '%s' "${1:-}" | awk '{print $1}'; }
+last_name()  { printf '%s' "${1:-}" | awk '{print $NF}'; }
 handle()     { first_name "${1:-}" | tr 'A-Z' 'a-z' | tr -d '-'; }
 branch()     { printf '%s' "${1:-}" | tr 'A-Z' 'a-z' | awk '{$1=$1; gsub(/ +/, "-"); print}'; }
 
@@ -274,6 +275,7 @@ add GROOM_PARENTS_1   "$(nth "${GROOM_PARENTS:-}" 2)"
 add GROOM_RANK_KO     "${GROOM_RANK_KO:-}"
 add GROOM_RANK_EXPR   "${GROOM_RANK_EXPR:-}"
 add GROOM_EN_FIRST    "$(first_name "${GROOM_NAME_EN:-}")"
+add GROOM_EN_LAST     "$(last_name "${GROOM_NAME_EN:-}")"
 add GROOM_HANDLE      "$(handle "${GROOM_NAME_EN:-}")"
 add GROOM_BRANCH      "$(branch "${GROOM_NAME_EN:-}")"
 
@@ -287,6 +289,7 @@ add BRIDE_PARENTS_1   "$(nth "${BRIDE_PARENTS:-}" 2)"
 add BRIDE_RANK_KO     "${BRIDE_RANK_KO:-}"
 add BRIDE_RANK_EXPR   "${BRIDE_RANK_EXPR:-}"
 add BRIDE_EN_FIRST    "$(first_name "${BRIDE_NAME_EN:-}")"
+add BRIDE_EN_LAST     "$(last_name "${BRIDE_NAME_EN:-}")"
 add BRIDE_HANDLE      "$(handle "${BRIDE_NAME_EN:-}")"
 add BRIDE_BRANCH      "$(branch "${BRIDE_NAME_EN:-}")"
 

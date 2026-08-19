@@ -182,6 +182,11 @@ function FirstName([string]$s) {
   $p = $s.Trim().Split(' ')
   return $p[0]
 }
+function LastName([string]$s) {
+  if (-not $s) { return '' }
+  $p = $s.Trim() -split '\s+'
+  return $p[-1]
+}
 function Handle([string]$s) { return (FirstName $s).ToLower().Replace('-', '') }
 function BranchName([string]$s) {
   if (-not $s) { return '' }
@@ -235,6 +240,7 @@ $T['GROOM_PARENTS_1']  = Nth (Cf 'GROOM_PARENTS') 2
 $T['GROOM_RANK_KO']    = Cf 'GROOM_RANK_KO'
 $T['GROOM_RANK_EXPR']  = Cf 'GROOM_RANK_EXPR'
 $T['GROOM_EN_FIRST']   = FirstName (Cf 'GROOM_NAME_EN')
+$T['GROOM_EN_LAST']    = LastName (Cf 'GROOM_NAME_EN')
 $T['GROOM_HANDLE']     = Handle (Cf 'GROOM_NAME_EN')
 $T['GROOM_BRANCH']     = BranchName (Cf 'GROOM_NAME_EN')
 
@@ -248,6 +254,7 @@ $T['BRIDE_PARENTS_1']  = Nth (Cf 'BRIDE_PARENTS') 2
 $T['BRIDE_RANK_KO']    = Cf 'BRIDE_RANK_KO'
 $T['BRIDE_RANK_EXPR']  = Cf 'BRIDE_RANK_EXPR'
 $T['BRIDE_EN_FIRST']   = FirstName (Cf 'BRIDE_NAME_EN')
+$T['BRIDE_EN_LAST']    = LastName (Cf 'BRIDE_NAME_EN')
 $T['BRIDE_HANDLE']     = Handle (Cf 'BRIDE_NAME_EN')
 $T['BRIDE_BRANCH']     = BranchName (Cf 'BRIDE_NAME_EN')
 
