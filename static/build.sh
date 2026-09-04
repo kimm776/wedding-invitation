@@ -153,7 +153,7 @@ pad2() { printf '%02d' "$1"; }
 
 parts="$(kst_parts "${WEDDING_AT:-}")"
 [ "$parts" != "ERR" ] || die "WEDDING_AT 을 해석할 수 없습니다: '${WEDDING_AT:-}'
-  offset을 포함한 ISO 8601로 적어 주시기 바랍니다. 예: 2026-11-14T11:00:00+09:00"
+  offset을 포함한 ISO 8601로 적어 주시기 바랍니다. 예: 2026-10-24T13:00:00+09:00"
 eval "$parts"                                  # Y M D DOW H24 MI
 
 fparts="$(kst_parts "${FIRST_MET_AT:-${WEDDING_AT:-}}")"

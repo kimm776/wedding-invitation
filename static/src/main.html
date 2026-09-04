@@ -119,7 +119,7 @@
 
     <div class="rv d1">
       <div class="when-date">{{WEDDING_DATE_KO}}</div>
-      <div class="when-time">오전 11시</div>
+      <div class="when-time">오후 1시</div>
     </div>
 
     <div class="dday rv d2">
@@ -235,9 +235,6 @@
     </details>
   </section>
 
-  <div class="divider">❀</div>
-
-
   <!-- 축하 전하기 -->
   <section id="bless">
     <div class="label rv">CONGRATULATIONS</div>
@@ -265,20 +262,26 @@
   </section>
 
 
+
+  <div class="divider">❀</div>
+
   <!-- 축하 전하기 아래의 전체폭(풀블리드) 사진.
        src는 main.js가 photoSrc()로 넣는다(?v= cache busting). -->
-  <img class="bless-photo rv" id="blessPhoto" alt="웨딩 사진" loading="lazy" />
+  <section>
+    <img class="bless-photo rv" id="blessPhoto" alt="웨딩 사진" loading="lazy" />
+    <div class="thanks-line">저희 두 사람을 축복해 주셔서 감사합니다🤍</div>
+    <div class="thanks-line-name">{{GROOM_NAME}}, {{BRIDE_NAME}} 올림</div>
+    <button class="share-btn" id="shareBtn" type="button">📤 청첩장 공유하기</button>
+  </section>
 
 
   <!-- footer -->
   <footer>
-    <div class="thanks-line">저희 두 사람을 축복해 주셔서 감사합니다</div>
-    <div>{{GROOM_NAME}}, {{BRIDE_NAME}}</div>
-    <button class="share-btn" id="shareBtn" type="button">📤 청첩장 공유하기</button>
+    <div class="version-title">README.md</div>
     <div class="version-note">
-      신랑과 신부 모두 개발자로 일하고 있어, 저희다운 방식으로 결혼을 기념하고자 개발자 버전 청첩장을 만들어 보았습니다.<br />
-      신랑이 개발과 배포를, 신부가 기획과 QA를 맡아 함께 완성했습니다.<br />
-      재미로 준비한 페이지이니 편하게 둘러봐 주세요!
+      신랑과 신부 모두 개발자로 일하고 있어,<br />저희다운 방식으로 결혼을 기념하고자<br />개발자 버전 청첩장을 만들어 보았습니다.<br /><br />
+      신랑이 기획과 QA를,<br />신부가 개발과 배포를 맡아<br />함께 완성했습니다.<br /><br />
+      재미로 준비한 페이지이니 편하게 둘러봐 주세요 :)
     </div>
     <div class="version-links">
       <a class="version-link" href="developer.html">&lt;/&gt; 개발자 버전</a>

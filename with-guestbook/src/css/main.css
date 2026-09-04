@@ -1408,7 +1408,7 @@ body::before { display: none; }
   font-family: var(--display);
 }
 
-/* 예식 시간 '오전 11시'를 날짜보다 또렷하게. 크고 진하게, rose 색으로 준다. */
+/* 예식 시간 '오후 1시'를 날짜보다 또렷하게. 크고 진하게, rose 색으로 준다. */
 .when-time {
   margin-top: 10px;
   font-family: var(--display);

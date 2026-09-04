@@ -237,13 +237,13 @@ function sideBySide(logo, info, logoWidth = 13) {
     '<span class="v">guest</span>@<span class="v">wedding</span>',
     '─────────────────────',
     kv('host', [CONFIG.venue.name, CONFIG.venue.hall].filter(Boolean).join(' ')),
-    kv('date', `${W.getFullYear()}-${pad(W.getMonth() + 1)}-${pad(W.getDate())} (${DAY_EN[W.getDay()]})`),
-    kv('time', `${W.getHours() % 12 || 12}:${pad(W.getMinutes())} KST (${W.getHours() < 12 ? '오전' : '오후'})`),
-    kv('addr', [CONFIG.venue.address, CONFIG.venue.floor].filter(Boolean).join(' ')),
-    kv('uptime', `${uptimeDays}d (since ${FIRST_COMMIT.getFullYear()}-${pad(FIRST_COMMIT.getMonth() + 1)}-${pad(FIRST_COMMIT.getDate())})`),
-    kv('kernel', KERNEL),
-    kv('shell', '/bin/bash'),
-    kv('locale', 'ko_KR.UTF-8'),
+    kv(' date   ', `${W.getFullYear()}-${pad(W.getMonth() + 1)}-${pad(W.getDate())} (${DAY_EN[W.getDay()]})`),
+    kv(' time   ', `${W.getHours() % 12 || 12}:${pad(W.getMinutes())} KST (${W.getHours() < 12 ? '오전' : '오후'})`),
+    kv(' addr   ', [CONFIG.venue.address, CONFIG.venue.floor].filter(Boolean).join(' ')),
+    kv(' uptime ', `${uptimeDays}d (since ${FIRST_COMMIT.getFullYear()}-${pad(FIRST_COMMIT.getMonth() + 1)}-${pad(FIRST_COMMIT.getDate())})`),
+    kv(' kernel ', KERNEL),
+    kv(' shell  ', '/bin/bash'),
+    kv(' locale ', 'ko_KR.UTF-8'),
   ];
 
   document.getElementById('fetch').innerHTML = sideBySide(logo, info);

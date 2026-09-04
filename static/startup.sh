@@ -22,9 +22,9 @@ fi
 
 printf '  http://localhost:%s  에서 확인하실 수 있습니다. 멈추려면 Ctrl+C 입니다.\n\n' "$PORT"
 
-# python3 를 먼저 쓰고 없으면 node 로 fallback합니다.
-if command -v python3 >/dev/null 2>&1; then
-  exec python3 -m http.server "$PORT" --bind 127.0.0.1 --directory "$DIR"
+# python 를 먼저 쓰고 없으면 node 로 fallback합니다.
+if command -v python >/dev/null 2>&1; then
+  exec python -m http.server "$PORT" --bind 127.0.0.1 --directory "$DIR"
 elif command -v node >/dev/null 2>&1; then
   exec node -e '
     const http=require("http"),fs=require("fs"),path=require("path");
@@ -45,6 +45,6 @@ elif command -v node >/dev/null 2>&1; then
     }).listen(port,"127.0.0.1");
   ' -- "$PORT" "$DIR"
 else
-  printf 'startup.sh: python3 도 node 도 없습니다. dist/ 를 다른 정적 server로 열어 주시기 바랍니다.\n' >&2
+  printf 'startup.sh: python 도 node 도 없습니다. dist/ 를 다른 정적 server로 열어 주시기 바랍니다.\n' >&2
   exit 1
 fi

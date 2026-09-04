@@ -1035,6 +1035,29 @@ details.gift .acc-list {
   display: block;
 }
 
+/* 축하 감사 */
+
+.bless-photo {
+  width: calc(100% + 52px);
+  margin-left: -26px;
+  margin-right: -26px;
+}
+
+.thanks-line {
+  font-family: var(--serif);
+  font-size: 16px;
+  color: var(--soft);
+  text-align: center;
+  padding: 40px 0 10px;
+}
+
+.thanks-line-name {
+  font-family: var(--serif);
+  font-size: 14px;
+  color: var(--soft);
+  text-align: center;
+  padding-bottom: 20px;
+}
 
 /* 11. footer */
 
@@ -1047,15 +1070,16 @@ footer {
   color: var(--faint);
 }
 
-footer .thanks-line {
-  font-family: var(--serif);
-  font-size: 16px;
-  color: var(--soft);
+/* version 안내 문구. 개발자와 terminal version link 위에 오는 설명이다. */
+footer .version-title {
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 2px;
+  color: var(--rose);
 }
 
-/* version 안내 문구. 개발자와 terminal version link 위에 오는 설명이다. */
 footer .version-note {
-  margin: 24px auto 0;
+  margin: 24px auto;
   max-width: 330px;
   font-size: 13.5px;
   line-height: 1.85;
@@ -1090,7 +1114,7 @@ footer .version-link:hover {
 }
 
 /* 청첩장 공유 button. page 톤에 맞춘 부드러운 outline. */
-footer .share-btn {
+.share-btn {
   display: block;
   width: 100%;
   margin: 18px 0 0;
@@ -1105,8 +1129,8 @@ footer .share-btn {
   transition: background 0.25s, border-color 0.25s, color 0.25s, transform 0.15s;
 }
 
-footer .share-btn:hover { background: var(--rose); border-color: var(--rose); color: #fff; }
-footer .share-btn:active { transform: scale(0.97); }
+.share-btn:hover { background: var(--rose); border-color: var(--rose); color: #fff; }
+.share-btn:active { transform: scale(0.97); }
 
 
 /* 12. 반응형 & 접근성 */
@@ -1408,7 +1432,7 @@ body::before { display: none; }
   font-family: var(--display);
 }
 
-/* 예식 시간 '오전 11시'를 날짜보다 또렷하게. 크고 진하게, rose 색으로 준다. */
+/* 예식 시간 '오후 1시'를 날짜보다 또렷하게. 크고 진하게, rose 색으로 준다. */
 .when-time {
   margin-top: 10px;
   font-family: var(--display);

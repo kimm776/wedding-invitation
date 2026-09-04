@@ -69,14 +69,14 @@ INFO_PARKING="건물 지하 주차장 이용\n무료주차 2시간"
 
 `WEDDING_AT` 하나만 바꾸면 아래가 전부 자동으로 다시 계산됩니다.
 
-- 한국어 날짜와 요일: `2026년 11월 14일 토요일 오전 11시`
+- 한국어 날짜와 요일: `2026년 10월 24일 토요일 오후 1시`
 - D-day countdown과 달력 하이라이트
-- terminal version의 `SAT 2026-11-14 11:00:00 KST` 와 LCD countdown
+- terminal version의 `SAT 2026-10-24 13:00:00 KST` 와 LCD countdown
 - developer version의 release 날짜 표시
 - `og:description` 의 일자와 장소
 
 요일은 `build.sh` 가 KST 기준으로 직접 계산합니다. `date` 명령의 GNU와 BSD 차이나
-system timezone에 좌우되지 않습니다. 분이 0이면 '오전 11시', 30분이면 '오전 11시 30분' 처럼
+system timezone에 좌우되지 않습니다. 분이 0이면 '오후 1시', 30분이면 '오후 1시 30분' 처럼
 표기도 알아서 달라집니다.
 
 형식은 **offset을 포함한 ISO 8601** 이어야 합니다.
