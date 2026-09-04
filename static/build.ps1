@@ -1,4 +1,4 @@
-# invitation.conf 를 읽어 src/ 를 dist/ 로 변환합니다.
+﻿# invitation.conf 를 읽어 src/ 를 dist/ 로 변환합니다.
 #
 # build.sh 의 Windows 판입니다. 같은 invitation.conf 를 읽고 같은 결과를 만듭니다.
 #
@@ -32,8 +32,10 @@ if (-not $Out)  { $Out  = [IO.Path]::Combine($here, 'dist') }
 $src = [IO.Path]::Combine($here, 'src')
 
 # .NET API 는 PowerShell 의 현재 위치를 따르지 않습니다. 상대 경로를 절대 경로로 바꿉니다.
-$Conf = [IO.Path]::GetFullPath((Join-Path (Get-Location).Path $Conf))
-$Out  = [IO.Path]::GetFullPath((Join-Path (Get-Location).Path $Out))
+# $Conf = [IO.Path]::GetFullPath((Join-Path (Get-Location).Path $Conf))
+# $Out  = [IO.Path]::GetFullPath((Join-Path (Get-Location).Path $Out))
+$Conf = [IO.Path]::GetFullPath($Conf)
+$Out  = [IO.Path]::GetFullPath($Out)
 
 # 출력 directory가 이 script의 산출물임을 표시하는 파일입니다.
 # 지우기 전에 이 표식을 확인하므로 -Out 으로 다른 directory를 가리켜도 지우지 않습니다.
