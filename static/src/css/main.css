@@ -227,7 +227,7 @@ section {
 }
 
 .greeting .soft {
-  font-size: 16px;
+  font-size: 15px;
   color: var(--soft);
 }
 
@@ -1081,7 +1081,7 @@ footer .version-title {
 footer .version-note {
   margin: 24px auto;
   max-width: 330px;
-  font-size: 13.5px;
+  font-size: 14.5px;
   line-height: 1.85;
   color: var(--faint);
   word-break: keep-all;
@@ -1278,7 +1278,7 @@ body::before { display: none; }
 /* 인사말: 본문은 부드러운 serif를 유지 */
 
 .greeting {
-  font-size: 17.5px;
+  font-size: 16.5px;
   line-height: 2.15;
 }
 
