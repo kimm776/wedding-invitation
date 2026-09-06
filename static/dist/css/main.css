@@ -1278,7 +1278,7 @@ body::before { display: none; }
 /* 인사말: 본문은 부드러운 serif를 유지 */
 
 .greeting {
-  font-size: 18px;
+  font-size: 17.5px;
   line-height: 2.15;
 }
 

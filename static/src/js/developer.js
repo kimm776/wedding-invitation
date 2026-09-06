@@ -99,7 +99,7 @@ const TERMINAL_LINES = [
   { type: 'out', text: 'Merge made by the "love" strategy.' },
   { type: 'out', text: ' 2 lives changed, ∞ insertions(+), 0 deletions(-)', cls: 't-amber' },
   { type: 'cmd', text: 'cat invitation.md' },
-  { type: 'out', text: '저희, 결혼합니다. 귀한 걸음 해주세요 ♥', cls: 't-rose' },
+  { type: 'out', text: '저희, 결혼합니다. 스크롤을 내려 청첩장을 확인해주세요.♥', cls: 't-rose' },
 ];
 
 const termBody = document.getElementById('termBody');
