@@ -1763,24 +1763,44 @@ footer .version-links {
   margin-bottom: 22px;
 }
 
-footer .version-link {
+footer .version-link1 {
   flex: 1;
   padding: 8px 8px;
   text-align: center;
   text-decoration: none;
   background: var(--panel);
-  border: 1px solid var(--line);
+  border: 1px solid var(--rose);
   border-radius: 10px;
   font-family: var(--sans);
   font-size: 12px;
-  color: var(--text-dim);
+  color: var(--rose);
   white-space: nowrap;
   transition: border-color 0.25s, color 0.25s;
 }
 
-footer .version-link:hover {
+footer .version-link1:hover {
   border-color: var(--rose);
   color: var(--rose);
+}
+
+footer .version-link2 {
+  flex: 1;
+  padding: 8px 8px;
+  text-align: center;
+  text-decoration: none;
+  background: var(--panel);
+  border: 1px solid var(--mint);
+  border-radius: 10px;
+  font-family: var(--sans);
+  font-size: 12px;
+  color: var(--mint);
+  white-space: nowrap;
+  transition: border-color 0.25s, color 0.25s;
+}
+
+footer .version-link2:hover {
+  border-color: var(--mint);
+  color: var(--mint);
 }
 
 /* 청첩장 공유 button */
